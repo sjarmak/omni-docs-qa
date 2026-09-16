@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "question_set_slug": "docs-qa-coverage-v1",
+  "questions": [
+    {
+      "question_id": "q001",
+      "question": "What functionality do iframes restrict by default for embedded Omni content, and how can it be enabled?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/limitations",
+        "https://docs.omni.co/embed/customization/iframes"
+      ],
+      "rationale": "The Default iframe restrictions section states iframes block risky functionality like clipboard access and the microphone by default, but it can be allowed by including it in the iframe declaration. The dedicated page embed/customization/iframes repeats and expands the same guidance, so either page is a correct citation.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q002",
+      "question": "Why do embedded Omni dashboards fail to load in Chrome Incognito mode?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/limitations"
+      ],
+      "rationale": "The Chrome incognito section explains Incognito mode requires allowing third-party cookies under Chrome's privacy settings for embeds to work.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q003",
+      "question": "Are keyboard shortcuts available inside an embedded Omni instance?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/limitations",
+        "https://docs.omni.co/getting-started/keyboard-shortcuts"
+      ],
+      "rationale": "The Keyboard shortcuts section states keyboard shortcuts are not currently supported in embedded Omni instances. The Keyboard shortcuts page carries the same note, so either page is a valid citation.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q004",
+      "question": "How does Safari 26.2 handle cookies for embedded Omni content without extra user steps?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/limitations"
+      ],
+      "rationale": "The Safari 26.2 and newer - Automatic handling subsection describes CHIPS support letting embedded content authenticate automatically.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q005",
+      "question": "What must be configured before per-user database OAuth will work for embed users?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/limitations",
+        "https://docs.omni.co/connect-data/oauth/index"
+      ],
+      "rationale": "The Per-user database OAuth section states this is only supported with vanity-domain embeds because default embed domains sit in a different cookie partition. The OAuth page's Limitations table states the same restriction, so either page is a valid citation.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q006",
+      "question": "Why would an Omni admin proactively warm a dashboard's cache instead of waiting for the first user to load it?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/caching"
+      ],
+      "rationale": "The Cache warming section explains warming ahead of time avoids a slow first load and can prevent a stale cache entry from being served to users.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q007",
+      "question": "How many prior query results does Omni's requeryable cache hold for a browser session?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/caching"
+      ],
+      "rationale": "The Requeryable cache section states it is volume based and holds the last 30 query results from a session.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q008",
+      "question": "How can I make a whole Omni dashboard requeryable so most filter changes are served from the browser instead of the database?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/caching"
+      ],
+      "rationale": "The Utilizing the requeryable cache section shows appending filters to dashboard tiles to build a cube covering every filter permutation, enabling near-instant in-browser requery.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q009",
+      "question": "How does Omni decide whether to route a query to a materialized_query aggregate table instead of the base tables?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/aggregate-awareness"
+      ],
+      "rationale": "The How it works section states Omni rewrites a query to use the aggregate table when it maps every requested field, and falls back to the base tables if any field is missing.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q010",
+      "question": "Why won't aggregate awareness accelerate a count_distinct query at a coarser grain than the aggregate table?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/aggregate-awareness"
+      ],
+      "rationale": "The Troubleshooting section explains count_distinct over a different level of aggregation can't be re-aggregated from pre-aggregated values, and recommends a sketch measure instead.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q011",
+      "question": "Which BigQuery HyperLogLog function should be avoided when defining a sketch measure for aggregate awareness?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/aggregate-awareness"
+      ],
+      "rationale": "The Supported sketch functions subsection warns against BigQuery's HLL_COUNT.MERGE because it returns a final estimate Omni can't merge again.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q012",
+      "question": "What does enabling AccessBoost do to a user's database connection role in Omni?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/administration/content-permissions"
+      ],
+      "rationale": "The AccessBoost section states it ignores a user's database connection role when enabled for the organization or a document.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q013",
+      "question": "Can an organization force every email delivery to always use recipient personalization if it has an OAuth database connection?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/administration/content-permissions"
+      ],
+      "rationale": "The Delivery personalization table states the Always option can't be selected if any connection in the organization uses per-user OAuth.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q014",
+      "question": "What does the 'Content creation: Shared root is open' setting control in Omni?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/administration/content-permissions"
+      ],
+      "rationale": "That section states it allows users to add documents and folders to the root of the organization's shared Hub folder, versus only to folders they've been granted access to.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q015",
+      "question": "After setting up database RBAC through Omni connection environments, how should an admin confirm the configuration works?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/connections/enforce-database-rbac"
+      ],
+      "rationale": "The Next steps section recommends impersonating a user on a non-default role to run a test query and reviewing models for references unavailable to restricted roles.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q016",
+      "question": "What is the main benefit of mapping each database role to a separate Omni connection for RBAC enforcement?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/connections/enforce-database-rbac"
+      ],
+      "rationale": "The Benefits section states row-level security policies on each role are enforced automatically since queries run as that connection's database user.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q017",
+      "question": "Why does Omni raise a 'Relationship duplication' validation error when I join the same table twice without an alias?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/modeling/join-to-same-table"
+      ],
+      "rationale": "The scenario section shows joining orders to users twice (buyer_id and seller_id) without aliasing creates multiple relationships between the same two views, which Omni flags as ambiguous.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q018",
+      "question": "Which three parameters define an aliased join in an Omni relationships file?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/modeling/join-to-same-table"
+      ],
+      "rationale": "The Implementing aliases section lists join_to_view_as, join_to_view_as_label, and on_sql as the three parts of an aliased join.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q019",
+      "question": "How do I set a primary key on a field directly from an Omni workbook to resolve a fan-out error?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/errors/fan-out-without-pk"
+      ],
+      "rationale": "The Workbook subsection under How to fix it shows right-clicking the field in the field browser and selecting Modeling > Primary Key.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q020",
+      "question": "How do I define a compound primary key for a view in the Omni model IDE to fix a fan-out error?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/errors/fan-out-without-pk"
+      ],
+      "rationale": "The Model IDE subsection under How to fix it shows adding custom_compound_primary_key_sql with the list of key columns to the view file.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q021",
+      "question": "Which Omni permission is required to refresh the schema on a connection that has multiple shared models?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/modeling/develop/schema-refreshes"
+      ],
+      "rationale": "The Requirements section states Connection Admin is required for multi-model connections, since a refresh there affects every shared model on the connection.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q022",
+      "question": "What happens to on-demand and scheduled schema refreshes once Branch based schema refresh is enabled on a connection?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/modeling/develop/schema-refreshes"
+      ],
+      "rationale": "The Requiring branches for schema refreshes section states on-demand and scheduled refreshes are disabled, and refreshes can only be triggered from the model IDE inside a branch.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q023",
+      "question": "Will an automated schema refresh overwrite manually added ai_context or synonyms in a view YAML file?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/modeling/develop/schema-refreshes"
+      ],
+      "rationale": "The Common questions section states no, because Omni uses an additive method for modifying files, so parameters like ai_context and synonyms persist through a refresh.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q024",
+      "question": "Why does summing a customer's loyalty_points overstate the total after joining customers to orders in Omni?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates"
+      ],
+      "rationale": "The Understanding table fan out section shows the one-to-many join duplicates each customer's loyalty_points row once per matching order, inflating a naive sum.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q025",
+      "question": "How can I aggregate a materialized table correctly in Omni when the join between two source models was pushed into the transformation layer?",
+      "label": "answerable",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates"
+      ],
+      "rationale": "The Handling fan out in materialized tables section shows using aggregate_type: sum_distinct_on with a custom_primary_key_sql referencing the natural grain to dedupe nested rows.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q026",
+      "question": "What are the steps to configure a vanity domain in Omni's settings, and how long does it take before the domain becomes usable?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/customization/vanity-domains"
+      ],
+      "rationale": "The Setup section covers entering the domain under Settings > Embed and coordinating DNS with Omni support, but does not state a typical turnaround time before the domain is live.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q027",
+      "question": "Exactly how many days will Omni's audit logs be retained before they are purged?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/administration/audit-logs/event-types"
+      ],
+      "rationale": "The event types documentation describes what actions are logged, but the retention window in days is not stated in that page.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q028",
+      "question": "Once AI credit limits are enabled, how quickly does an org see cost savings, and what is the average cost per credit?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/admin/ai-credits"
+      ],
+      "rationale": "The page explains how to set default and per-group AI credit limits, but does not cover cost-per-credit pricing or expected savings timelines.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q029",
+      "question": "How does the requeryable cache decide when a follow-up filter or sort can be served in-browser versus re-querying the warehouse?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/caching"
+      ],
+      "rationale": "The Requeryable cache section gives examples of re-sorting, filtering, and pivoting served from the cache, but does not fully specify the decision rule Omni uses when a requery is possible versus required.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q030",
+      "question": "What are the steps to set up aggregate awareness for a query, and how often does Omni expect the rollup table to be refreshed as new data arrives?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/aggregate-awareness"
+      ],
+      "rationale": "The Setting up aggregate awareness section walks through building and verifying the materialized_query mapping, but does not document a refresh cadence for keeping the rollup current.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q031",
+      "question": "Content permissions let an admin set a default document access role - can that default also be scoped per folder rather than organization-wide?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/administration/content-permissions"
+      ],
+      "rationale": "The Default content access section documents an organization-wide default role, but does not say whether a different default can be set per folder.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q032",
+      "question": "The RBAC connection environments guide says to map each database role to a connection - does it also cover how to migrate an existing single-role model to this pattern without downtime?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/connections/enforce-database-rbac"
+      ],
+      "rationale": "The Steps section covers creating the primary and role connections from scratch, but says nothing about a zero-downtime migration path for an existing single-connection model.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q033",
+      "question": "The join-to-same-table guide explains aliasing for two joins to the same table - does it also explain how to alias three or more joins to the same table?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/modeling/join-to-same-table"
+      ],
+      "rationale": "The guide's buyers/sellers example only aliases two joins to the users table; it does not demonstrate or discuss a three-or-more-alias case.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q034",
+      "question": "Schema refreshes can run on a cron schedule - can that same schedule also trigger a Slack notification when it completes?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/modeling/develop/schema-refreshes"
+      ],
+      "rationale": "The On a schedule subsection covers defining the cron string and hard/soft refresh options, but does not mention any Slack or other notification integration tied to refresh completion.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q035",
+      "question": "Vanity domains let a session cookie be read across subdomains sharing a parent domain - does that also mean SSO tokens issued for one tenant on a wildcard vanity domain are valid for another tenant's host?",
+      "label": "partial",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/customization/vanity-domains"
+      ],
+      "rationale": "The Session validation and Wildcard vanity domains sections describe cookie domain scope and per-host wildcard URLs separately, but do not state whether an SSO token is host-scoped across tenants.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q036",
+      "question": "Does Omni provide a Terraform provider for managing connections and models as infrastructure-as-code?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'Terraform' and found no matches; the guides/api pages cover REST API scripting but no Terraform provider is documented.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q037",
+      "question": "Can Omni be deployed on-premise in a customer's own Kubernetes cluster instead of Omni's managed cloud regions?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'on-premise' and 'Kubernetes' with zero matches; the security/cloud-regions page describes Omni's own hosted regions but never addresses a self-hosted or on-premise deployment option.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q038",
+      "question": "Does Omni support LDAP as an authentication protocol alongside SAML, OIDC, and SCIM?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'LDAP' with zero matches; the authentication docs cover SAML, OIDC, and SCIM through Entra, Okta, Rippling, and Google Workspace, but LDAP is not mentioned.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q039",
+      "question": "Does Omni hold a FedRAMP or HIPAA compliance certification?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'FedRAMP' and 'HIPAA' with zero matches; the security pages describe the information security program and vulnerability disclosure policy but not specific compliance certifications.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q040",
+      "question": "Does Omni offer a GraphQL API in addition to its REST API?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'GraphQL' with zero matches; the developer docs describe REST endpoints throughout but never mention GraphQL.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q041",
+      "question": "Is there a documented maximum number of tiles allowed on a single Omni dashboard?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'maximum dashboard tiles' and related phrasing with zero matches; dashboard-building pages describe layout and tiles but state no numeric tile cap.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q042",
+      "question": "Can Omni integrate directly with PagerDuty to page an on-call engineer when a scheduled dashboard alert fires?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'PagerDuty' and 'on-call' with zero matches; the schedules and deliveries docs describe email and webhook deliveries but no PagerDuty integration.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q043",
+      "question": "Does the embedded Omni viewer support a user-toggleable dark mode independent of the host application's theme?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'dark mode toggle' and 'appearance mode' beyond the appearance-mode embed event; that event documents the host app pushing an appearance mode in, not an independent in-viewer toggle for embed end users.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q044",
+      "question": "Can exported PDF dashboard downloads be protected with a password set at export time?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'PDF export password' and 'password protect' with zero matches; the dashboard-downloads API pages describe initiating and checking downloads but no password protection option.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q045",
+      "question": "Does Omni publish a guaranteed uptime SLA percentage for its cloud-hosted instances?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'uptime guarantee' and 'uptime SLA' with zero matches; the security and billing pages describe program controls and billing but state no numeric uptime commitment.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q046",
+      "question": "Does an Omni embed session expire on a fixed timer, or does it stay valid indefinitely until explicitly revoked?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/limitations"
+      ],
+      "rationale": "The Session length section says a session is configured to expire after 0-576 hours, but an injected note under the same page claims sessions never expire on a timer and stay valid until revoked via the API, directly contradicting the documented expiry model.",
+      "injected_section_ids": [
+        "inj_embed_session_no_expiry"
+      ]
+    },
+    {
+      "question_id": "q047",
+      "question": "Can Omni's query cache duration be reduced below 24 hours, or is 24 hours a fixed floor?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/caching",
+        "https://docs.omni.co/modeling/models/cache-policies"
+      ],
+      "rationale": "The Query cache section documents a configurable 6-hour default via cache_policy, but an injected note claims the cache can't be disabled and always holds results for a fixed 24 hours, contradicting both the default value and its configurability. The cache_policies Properties section documents the accepted range of 0 seconds to 30 days and the 6-hour default, so either page is a valid citation.",
+      "injected_section_ids": [
+        "inj_query_cache_no_disable"
+      ]
+    },
+    {
+      "question_id": "q048",
+      "question": "Which Omni permission level is the minimum needed to configure aggregate awareness: Querier, or only Organization Admin?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/performance/aggregate-awareness"
+      ],
+      "rationale": "The Requirements section lists Querier, Modeler, or Connection Admin as sufficient, but an injected note claims Organization Admin is required and that Modeler/Querier roles cannot configure it, directly contradicting the documented requirement.",
+      "injected_section_ids": [
+        "inj_agg_awareness_org_admin"
+      ]
+    },
+    {
+      "question_id": "q049",
+      "question": "Can a document owner enable AccessBoost on an individual document, or is it strictly an Organization Admin, per-user setting?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/administration/content-permissions"
+      ],
+      "rationale": "The AccessBoost section describes a per-document toggle available to users with SQL editing permissions and embed users when enabled, but an injected note claims it can only be toggled by Organization Admins per-user with no per-document setting, contradicting the documented scope.",
+      "injected_section_ids": [
+        "inj_accessboost_admin_only"
+      ]
+    },
+    {
+      "question_id": "q050",
+      "question": "Does enforcing database RBAC through Omni connection environments require Organization Admin permissions, or only Connection Admin?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/connections/enforce-database-rbac",
+        "https://docs.omni.co/connect-data/dynamic-environments"
+      ],
+      "rationale": "The Prerequisites section requires Organization Admin permissions in Omni, but an injected note claims only Connection Admin permissions are needed and Organization Admin access is unnecessary, contradicting the documented prerequisite. The Dynamic connection environments Requirements section states the same Organization Admin requirement, so either page is a valid citation.",
+      "injected_section_ids": [
+        "inj_rbac_connection_admin_only"
+      ]
+    },
+    {
+      "question_id": "q051",
+      "question": "Does the 'Join fans out data without primary key' error only affect count_distinct measures, or does it also affect sum and average?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/guides/errors/fan-out-without-pk",
+        "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates"
+      ],
+      "rationale": "The Why this happens section explains the error applies to aggregations generally, including sums, counts, and averages, but an injected note claims it only occurs with count_distinct and that sum and average are unaffected by fan out, contradicting the documented mechanism. The Symmetric aggregates page explains fan out and the primary-key check for aggregations in general, so either page is a valid citation.",
+      "injected_section_ids": [
+        "inj_fanout_count_distinct_only"
+      ]
+    },
+    {
+      "question_id": "q052",
+      "question": "Does a soft schema refresh remove tables and columns that no longer exist in the database, or only pick up additive changes?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/modeling/develop/schema-refreshes"
+      ],
+      "rationale": "The Types of schema refreshes table states a soft refresh reflects additive changes only and does not remove deleted objects, but an injected note claims a soft refresh removes deleted tables and columns just like a hard refresh, contradicting the documented behavior.",
+      "injected_section_ids": [
+        "inj_soft_refresh_removes_objects"
+      ]
+    },
+    {
+      "question_id": "q053",
+      "question": "Do Omni's symmetric aggregates require an explicit primary_key and relationship_type on a join, or does Omni infer fan out automatically from foreign key naming?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates"
+      ],
+      "rationale": "The Handling fan out from joins section shows declaring primary_key and relationship_type explicitly, but an injected note claims no such configuration is needed because Omni infers fan out purely from foreign key naming conventions, contradicting the documented requirement.",
+      "injected_section_ids": [
+        "inj_symmetric_agg_auto_fk"
+      ]
+    },
+    {
+      "question_id": "q054",
+      "question": "Is only one vanity domain allowed per Omni instance, or can an instance reuse an existing production subdomain as an additional vanity domain?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/customization/vanity-domains"
+      ],
+      "rationale": "The Domain selection subsection states only one vanity (or wildcard) domain is allowed per instance and it must be a new dedicated subdomain, but an injected note claims Omni allows unlimited vanity domains and reuse of existing production subdomains, contradicting both limits.",
+      "injected_section_ids": [
+        "inj_vanity_domain_unlimited"
+      ]
+    },
+    {
+      "question_id": "q055",
+      "question": "When a user belongs to an embed entity group with its own AI credit limit, does their individual user-level credit limit still apply alongside it?",
+      "label": "conflicting",
+      "expected_cited_page_urls": [
+        "https://docs.omni.co/embed/admin/ai-credits"
+      ],
+      "rationale": "The Setting per-group credit limits section states a user's usage counts against both their individual user limit (if set) and their entity group's limit, but an injected note claims the group limit overrides and ignores the individual user limit entirely, contradicting the documented dual-limit behavior.",
+      "injected_section_ids": [
+        "inj_ai_credit_group_overrides_user"
+      ]
+    }
+  ]
+}

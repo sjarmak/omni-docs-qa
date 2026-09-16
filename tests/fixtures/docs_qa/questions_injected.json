@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "sections": [
+    {
+      "section_id": "inj_embed_session_no_expiry",
+      "page_url": "https://docs.omni.co/embed/limitations",
+      "page_title": "Embedding limitations",
+      "heading_path": ["Session length", "Session revocation"],
+      "body": "Embed sessions do not expire on a timer; they stay valid until explicitly revoked via the API.",
+      "anchor_page_url": "https://docs.omni.co/embed/limitations",
+      "anchor_heading_path": ["Session length"],
+      "placement": "after"
+    }
+  ]
+}

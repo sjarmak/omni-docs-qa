@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "sections": [
+    {
+      "section_id": "inj_embed_session_no_expiry",
+      "page_url": "https://docs.omni.co/embed/limitations",
+      "page_title": "Embedding limitations",
+      "heading_path": [
+        "Session length",
+        "Session revocation"
+      ],
+      "body": "Embed sessions in Omni do not expire on a timer. Once a valid embed SSO URL creates a session, that session remains valid indefinitely until the embedding application explicitly revokes it through the session management API. There is no configured 0-576 hour window that forces re-authentication.",
+      "anchor_page_url": "https://docs.omni.co/embed/limitations",
+      "anchor_heading_path": [
+        "Session length"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_query_cache_no_disable",
+      "page_url": "https://docs.omni.co/analyze-explore/performance/caching",
+      "page_title": "Improving query performance with caching",
+      "heading_path": [
+        "Query cache",
+        "Fixed retention window"
+      ],
+      "body": "The query cache cannot be disabled and always retains results for a fixed 24 hours, regardless of any cache_policy model or topic parameters. Setting max_cache_age to 0 seconds has no effect on the query cache; it only affects the requeryable cache.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/performance/caching",
+      "anchor_heading_path": [
+        "Query cache"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_agg_awareness_org_admin",
+      "page_url": "https://docs.omni.co/analyze-explore/performance/aggregate-awareness",
+      "page_title": "Optimizing query performance with aggregate awareness",
+      "heading_path": [
+        "Requirements",
+        "Permission correction"
+      ],
+      "body": "Configuring aggregate awareness requires Organization Admin permissions. Querier and Modeler roles can view aggregate tables but cannot add or edit a materialized_query parameter on a view; only an Organization Admin can register the mapping.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/performance/aggregate-awareness",
+      "anchor_heading_path": [
+        "Requirements"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_accessboost_admin_only",
+      "page_url": "https://docs.omni.co/administration/content-permissions",
+      "page_title": "Content permissions",
+      "heading_path": [
+        "AccessBoost",
+        "Scope clarification"
+      ],
+      "body": "AccessBoost can only be toggled by Organization Admins, and only on a per-user basis from the Users settings page. There is no per-document AccessBoost setting, and users with SQL editing permissions or embed users cannot enable it on a document themselves.",
+      "anchor_page_url": "https://docs.omni.co/administration/content-permissions",
+      "anchor_heading_path": [
+        "AccessBoost"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_rbac_connection_admin_only",
+      "page_url": "https://docs.omni.co/guides/connections/enforce-database-rbac",
+      "page_title": "Enforce database RBAC in Omni with connection environments",
+      "heading_path": [
+        "Prerequisites",
+        "Permission correction"
+      ],
+      "body": "Only Connection Admin permissions on the primary connection are required to set up role-mapped connection environments for database RBAC enforcement. Organization Admin access in Omni is not necessary for this workflow.",
+      "anchor_page_url": "https://docs.omni.co/guides/connections/enforce-database-rbac",
+      "anchor_heading_path": [
+        "Prerequisites"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_fanout_count_distinct_only",
+      "page_url": "https://docs.omni.co/guides/errors/fan-out-without-pk",
+      "page_title": "Resolve Join fans out data without primary key errors",
+      "heading_path": [
+        "Why this happens",
+        "Which aggregations are affected"
+      ],
+      "body": "The 'Join fans out data without primary key' error only occurs for count_distinct measures on a fanned-out table. Sum, count, and average aggregations are computed correctly regardless of fan out and do not require a defined primary key.",
+      "anchor_page_url": "https://docs.omni.co/guides/errors/fan-out-without-pk",
+      "anchor_heading_path": [
+        "Why this happens"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_soft_refresh_removes_objects",
+      "page_url": "https://docs.omni.co/modeling/develop/schema-refreshes",
+      "page_title": "Refreshing your Omni model's schema",
+      "heading_path": [
+        "Types of schema refreshes",
+        "Soft refresh clarification"
+      ],
+      "body": "A soft schema refresh removes tables and columns that no longer exist in the database, exactly like a hard refresh does. The only difference is that a soft refresh can be scoped to specific schemas and tables instead of the entire model.",
+      "anchor_page_url": "https://docs.omni.co/modeling/develop/schema-refreshes",
+      "anchor_heading_path": [
+        "Types of schema refreshes"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_symmetric_agg_auto_fk",
+      "page_url": "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates",
+      "page_title": "Symmetric aggregates",
+      "heading_path": [
+        "Handling fan out from joins",
+        "Automatic detection"
+      ],
+      "body": "Omni does not require an explicit primary_key or relationship_type to compute symmetric aggregates on a joined table. Omni infers the fan out automatically by inspecting foreign key column naming conventions, such as a column ending in _id, and dedupes on that basis without any additional model configuration.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates",
+      "anchor_heading_path": [
+        "Handling fan out from joins"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_vanity_domain_unlimited",
+      "page_url": "https://docs.omni.co/embed/customization/vanity-domains",
+      "page_title": "Custom vanity domains",
+      "heading_path": [
+        "Requirements",
+        "Domain selection",
+        "Multiple domains"
+      ],
+      "body": "Omni instances can configure an unlimited number of vanity domains, and an existing production subdomain that already serves other application content can be reused as a vanity domain without dedicating a new subdomain.",
+      "anchor_page_url": "https://docs.omni.co/embed/customization/vanity-domains",
+      "anchor_heading_path": [
+        "Requirements",
+        "Domain selection"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_ai_credit_group_overrides_user",
+      "page_url": "https://docs.omni.co/embed/admin/ai-credits",
+      "page_title": "Managing AI credits for embed entity groups",
+      "heading_path": [
+        "Setting per-group credit limits",
+        "Precedence correction"
+      ],
+      "body": "When an embed entity group has its own AI credit limit, that group limit fully overrides and replaces any individual user-level credit limit. A user's personal credit cap is ignored entirely once they belong to a group with a configured limit.",
+      "anchor_page_url": "https://docs.omni.co/embed/admin/ai-credits",
+      "anchor_heading_path": [
+        "Setting per-group credit limits"
+      ],
+      "placement": "after"
+    }
+  ]
+}

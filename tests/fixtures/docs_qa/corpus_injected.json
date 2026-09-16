@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "sections": [
+    {
+      "section_id": "inj_section_b_note",
+      "page_url": "https://docs.omni.co/page-one",
+      "page_title": "Page One",
+      "heading_path": ["Section B", "Contradiction"],
+      "body": "This is a deliberately injected contradiction about Section B.",
+      "anchor_page_url": "https://docs.omni.co/page-one",
+      "anchor_heading_path": ["Section B"],
+      "placement": "after"
+    }
+  ]
+}

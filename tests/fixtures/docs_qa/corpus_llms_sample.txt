@@ -1,0 +1,41 @@
+# Page One
+Source: https://docs.omni.co/page-one
+
+Preamble text for page one.
+
+## Section A
+
+Body A text.
+
+### Subsection A1
+
+Body A1 text.
+
+## Section B
+
+Body B text.
+
+```fence-demo
+# not a page heading
+## not a section heading
+```
+
+Some trailing text after the fence, still inside Section B.
+
+# Not A Page Heading
+This line is not followed by Source, so it stays inside Section B.
+
+# Page Two
+Source: https://docs.omni.co/page-two
+
+### Deep Start
+
+Content that starts directly at heading level three.
+
+## Repeated Title
+
+First occurrence body.
+
+## Repeated Title
+
+Second occurrence body.

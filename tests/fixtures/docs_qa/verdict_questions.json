@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "question_set_slug": "docs-qa-coverage-v1",
+  "questions": [
+    {
+      "question_id": "q001",
+      "question": "How long can an Omni embed session last before it expires?",
+      "label": "answerable",
+      "expected_cited_page_urls": ["https://docs.omni.co/embed/limitations"],
+      "rationale": "The Session length section states a session is configured to expire after 0-576 hours.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q002",
+      "question": "Does the vanity domain guide cover subdomain reuse in full?",
+      "label": "partial",
+      "expected_cited_page_urls": ["https://docs.omni.co/embed/customization/vanity-domains"],
+      "rationale": "The Domain selection subsection covers naming rules but not what happens if the subdomain is already in use elsewhere.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q003",
+      "question": "Does Omni support LDAP authentication alongside SAML and OIDC?",
+      "label": "not_covered",
+      "expected_cited_page_urls": [],
+      "rationale": "Searched the export for 'LDAP' with zero matches across the authentication docs.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q004",
+      "question": "How long does an embed session last, given the conflicting session guidance?",
+      "label": "conflicting",
+      "expected_cited_page_urls": ["https://docs.omni.co/embed/limitations"],
+      "rationale": "One section says sessions expire after up to 576 hours, an injected section claims sessions never expire.",
+      "injected_section_ids": ["inj_embed_session_no_expiry"]
+    },
+    {
+      "question_id": "q005",
+      "question": "What happens when an embed dashboard is deleted while a session is active?",
+      "label": "answerable",
+      "expected_cited_page_urls": ["https://docs.omni.co/embed/limitations"],
+      "rationale": "The Limitations page documents session teardown when the underlying dashboard is removed.",
+      "injected_section_ids": []
+    }
+  ]
+}

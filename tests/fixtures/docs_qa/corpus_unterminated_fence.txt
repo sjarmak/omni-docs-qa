@@ -1,0 +1,16 @@
+# Page One
+Source: https://docs.omni.co/fence-page-one
+
+## Section A
+
+Body A text.
+
+```dangling-fence
+This fence is never closed before the page ends.
+
+# Page Two
+Source: https://docs.omni.co/fence-page-two
+
+## Section B
+
+Body B text.

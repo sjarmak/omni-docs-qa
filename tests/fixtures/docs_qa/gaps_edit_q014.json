@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "gap_id": "gap_q014",
+  "question_id": "q014",
+  "author": "test-author",
+  "operations": [
+    {
+      "op": "replace_body",
+      "section_id": "sec_a1",
+      "body": "Updated intro body text for page A."
+    },
+    {
+      "op": "append_section",
+      "anchor_section_id": "sec_b1",
+      "placement": "after",
+      "section_id": "inj_new_note",
+      "page_url": "https://docs.omni.co/b",
+      "page_title": "Page B",
+      "heading_path": [
+        "Setup",
+        "Known conflicts"
+      ],
+      "body": "A deliberately injected note about setup conflicts."
+    },
+    {
+      "op": "delete_section",
+      "section_id": "sec_a2"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "question_set_slug": "docs-qa-coverage-v1",
+  "questions": [
+    {
+      "question_id": "q001",
+      "question": "How do I connect a Postgres database to Omni?",
+      "label": "answerable",
+      "expected_cited_page_urls": ["https://docs.omni.co/connections/postgres"],
+      "rationale": "The connections page documents Postgres setup end to end.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q002",
+      "question": "How do I create a new dashboard in Omni?",
+      "label": "answerable",
+      "expected_cited_page_urls": ["https://docs.omni.co/dashboards/create"],
+      "rationale": "The dashboards page documents the create flow.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q003",
+      "question": "How do I share a dashboard with a workspace group?",
+      "label": "answerable",
+      "expected_cited_page_urls": ["https://docs.omni.co/dashboards/sharing"],
+      "rationale": "The sharing page documents workspace group sharing.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q004",
+      "question": "How does Omni resolve a merge conflict on a shared model branch?",
+      "label": "partial",
+      "expected_cited_page_urls": ["https://docs.omni.co/modeling/branches"],
+      "rationale": "The branches page covers fast-forward merges but not every conflict case.",
+      "injected_section_ids": []
+    },
+    {
+      "question_id": "q005",
+      "question": "What happens when two branches disagree about a measure definition?",
+      "label": "conflicting",
+      "expected_cited_page_urls": ["https://docs.omni.co/modeling/branches"],
+      "rationale": "Two sections give conflicting guidance about measure conflict resolution.",
+      "injected_section_ids": ["inj_branch_measure_conflict"]
+    }
+  ]
+}
