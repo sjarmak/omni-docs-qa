@@ -34,7 +34,7 @@ contradictions caught, and the first fix cycle took the regression pass from
 | Your documentation | Either a published site or a tree of Markdown files. Section 1 turns both into the same export. |
 
 ```bash
-git clone https://github.com/sjarmak/omni-experiments.git omni-docs-qa && cd omni-docs-qa
+git clone https://github.com/sjarmak/omni-docs-qa.git && cd omni-docs-qa
 uv sync --dev
 cp -n .env.example .env && chmod 600 .env   # set OMNI_PROFILE
 uv run pytest -q                              # 216 tests, no network
