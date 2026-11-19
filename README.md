@@ -464,8 +464,10 @@ uv run python -m omni_docs_qa.gaps \
 ```
 
 Every non-answerable verdict becomes a queue row carrying the question, the
-expected and returned labels, the model's reason, and what it cited. A writer
-reviews the queue and authors one edit file per gap:
+expected and returned labels, the model's reason, and what it cited. Before
+acting on a row, read [docs/judging-docs.md](docs/judging-docs.md). It covers
+how to triage gaps, and how to judge the writing style, which this harness
+does not score. A writer reviews the queue and authors one edit file per gap:
 
 ```json
 {
