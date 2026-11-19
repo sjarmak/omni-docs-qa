@@ -210,9 +210,9 @@ def _validate_question_scalar_fields(question: Question) -> None:
             f"{question.question_id}: invalid label {question.label!r}"
         )
 
-    if not (20 <= len(question.rationale) <= 500):
+    if not (20 <= len(question.rationale) <= 1000):
         raise DocsQuestionsError(
-            f"{question.question_id}: rationale must be 20-500 chars"
+            f"{question.question_id}: rationale must be 20-1000 chars"
         )
 
 

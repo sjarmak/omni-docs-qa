@@ -178,6 +178,43 @@ why each label is right. The Omni set used 55 questions in this mix:
 | `not_covered` | 10 | Nothing in the snapshot addresses it. |
 | `conflicting` | 10 | Two sections disagree (one of them injected). |
 
+A larger set, `examples/questions-v2.json` (`docs-qa-coverage-v2`), carries
+those 55 forward unchanged and adds 144 more for 199 in all:
+
+| Label | v1 | v2 |
+| --- | ---: | ---: |
+| `answerable` | 25 | 60 |
+| `partial` | 10 | 56 |
+| `not_covered` | 10 | 54 |
+| `conflicting` | 10 | 29 |
+
+It is weighted toward `partial` and `not_covered` because those labels carry
+the discriminating signal. Its 30 planted contradictions are in
+`examples/injected_sections-v2.json`; the first 10 are the v1 set. Both sets
+were labelled against the 2026-09-15 snapshot of docs.omni.co, so recheck the
+gap questions against current docs before treating any of them as open.
+Validate v2 with `--no-strict-counts`, since the strict check expects the v1
+mix. Compared with the copy in `omni-experiments`, this file is sorted by
+`question_id` and q203 ends in `?`, so its hash differs; no label, rationale or
+citation changed.
+
+How the v2 labels were made, which is the part worth copying:
+
+- **No model calls.** Four authors split the docs by area and wrote questions
+  from the text. An independent reviewer re-derived every label from the
+  corpus without trusting the rationale. Review changed 11 of 145 drafts.
+- **Label-blind text.** No question contains a label word or hints that the
+  docs are incomplete.
+- **No templates that leak the label.** Review caught four `partial`
+  questions whose shared second clause was always the unanswered half, so the
+  shape of the question predicted the label. Vary the shapes.
+- **Realistic `not_covered`.** Every one is about a real product area, so
+  retrieval returns related sections and the label is a genuine test. Record
+  the searches that came up empty in the rationale.
+- **Check retrieval before scoring.** On v2, BM25 at k=8 missed the evidence
+  for 12 of 145 evidence-bearing questions. Raise k or exclude and report
+  those questions rather than blaming the model or the docs for them.
+
 File shape (`examples/questions.json`):
 
 ```json
@@ -190,7 +227,7 @@ File shape (`examples/questions.json`):
       "question": "What functionality do iframes restrict by default, and how is it enabled?",
       "label": "answerable",
       "expected_cited_page_urls": ["https://docs.example.com/embed/limitations"],
-      "rationale": "The Default iframe restrictions section states ... (20-500 chars)",
+      "rationale": "The Default iframe restrictions section states ... (20-1000 chars)",
       "injected_section_ids": []
     }
   ]
@@ -200,7 +237,9 @@ File shape (`examples/questions.json`):
 Validation rules the harness enforces:
 
 - `question` is 10 to 500 characters and ends with `?`.
-- `rationale` is 20 to 500 characters.
+- `rationale` is 20 to 1,000 characters. It is for reviewers only and never
+  reaches a prompt, so name the sections that answer the question, or say what
+  you searched for and found missing.
 - `expected_cited_page_urls` must start with `--url-prefix`, be unique,
   and be empty for `not_covered` and non-empty otherwise. List every page that
   would be a correct citation; a question whose answer lives on two pages must
@@ -528,16 +567,6 @@ Nothing in the code names a product. What you change is input:
 | Omni CLI profile | `--profile`, or `OMNI_PROFILE` in `.env` | Only `--live` runs need it; `--plan` and `--dry-run` never do. |
 | Product name and labels | `ai_context` strings and labels in `models/docs_qa/*` | Copy the directory and edit the YAML. |
 | Database and schema | `catalog:` and `schema:` in the view; the table is always `omni_docs_qa.sections` | Keep the view's `schema:` equal to the schema the loader created. |
-
-Leave the verdict enum, the JSON shape, the scorer, and the two-step retrieval
-rules as they are. They are what make runs comparable across snapshots and
-across teams.
-
---- | --- | --- |
-| `docs_questions.py` | `DOCS_URL_PREFIX = "https://docs.omni.co/"` | Your docs site prefix. |
-| `docs_verdict.py` | First line of `PROMPT_TEMPLATE` names "the Omni documentation snapshot" | Your product name. |
-| `models/docs_qa/*` | `ai_context` strings, labels, `catalog:` | Your product and database names. |
-| `corpus.py` / `load.py` | Schema `omni_docs_qa` | Any schema name; keep the view's `schema:` in sync. |
 
 Leave the verdict enum, the JSON shape, the scorer, and the two-step retrieval
 rules as they are. They are what make runs comparable across snapshots and

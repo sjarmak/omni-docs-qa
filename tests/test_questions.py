@@ -266,3 +266,36 @@ def test_never_matches_question_text_against_body(tmp_path: Path) -> None:
     )
 
     assert exit_code == 0
+
+
+EXAMPLES = Path(__file__).parents[1] / "examples"
+
+
+@pytest.mark.parametrize(
+    ("questions", "injected", "strict_counts", "by_label"),
+    [
+        (
+            "questions.json",
+            "injected_sections.json",
+            True,
+            {"answerable": 25, "partial": 10, "not_covered": 10, "conflicting": 10},
+        ),
+        (
+            "questions-v2.json",
+            "injected_sections-v2.json",
+            False,
+            {"answerable": 60, "partial": 56, "not_covered": 54, "conflicting": 29},
+        ),
+    ],
+)
+def test_shipped_example_sets_validate(
+    questions: str, injected: str, strict_counts: bool, by_label: dict[str, int]
+) -> None:
+    result = validate(
+        load_questions(EXAMPLES / questions),
+        strict_counts=strict_counts,
+        injected_ids=load_injected_ids(EXAMPLES / injected),
+        url_prefix="https://docs.omni.co/",
+    )
+
+    assert result.by_label == by_label

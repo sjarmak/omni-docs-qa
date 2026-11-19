@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "sections": [
+    {
+      "section_id": "inj_embed_session_no_expiry",
+      "page_url": "https://docs.omni.co/embed/limitations",
+      "page_title": "Embedding limitations",
+      "heading_path": [
+        "Session length",
+        "Session revocation"
+      ],
+      "body": "Embed sessions in Omni do not expire on a timer. Once a valid embed SSO URL creates a session, that session remains valid indefinitely until the embedding application explicitly revokes it through the session management API. There is no configured 0-576 hour window that forces re-authentication.",
+      "anchor_page_url": "https://docs.omni.co/embed/limitations",
+      "anchor_heading_path": [
+        "Session length"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_query_cache_no_disable",
+      "page_url": "https://docs.omni.co/analyze-explore/performance/caching",
+      "page_title": "Improving query performance with caching",
+      "heading_path": [
+        "Query cache",
+        "Fixed retention window"
+      ],
+      "body": "The query cache cannot be disabled and always retains results for a fixed 24 hours, regardless of any cache_policy model or topic parameters. Setting max_cache_age to 0 seconds has no effect on the query cache; it only affects the requeryable cache.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/performance/caching",
+      "anchor_heading_path": [
+        "Query cache"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_agg_awareness_org_admin",
+      "page_url": "https://docs.omni.co/analyze-explore/performance/aggregate-awareness",
+      "page_title": "Optimizing query performance with aggregate awareness",
+      "heading_path": [
+        "Requirements",
+        "Permission correction"
+      ],
+      "body": "Configuring aggregate awareness requires Organization Admin permissions. Querier and Modeler roles can view aggregate tables but cannot add or edit a materialized_query parameter on a view; only an Organization Admin can register the mapping.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/performance/aggregate-awareness",
+      "anchor_heading_path": [
+        "Requirements"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_accessboost_admin_only",
+      "page_url": "https://docs.omni.co/administration/content-permissions",
+      "page_title": "Content permissions",
+      "heading_path": [
+        "AccessBoost",
+        "Scope clarification"
+      ],
+      "body": "AccessBoost can only be toggled by Organization Admins, and only on a per-user basis from the Users settings page. There is no per-document AccessBoost setting, and users with SQL editing permissions or embed users cannot enable it on a document themselves.",
+      "anchor_page_url": "https://docs.omni.co/administration/content-permissions",
+      "anchor_heading_path": [
+        "AccessBoost"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_rbac_connection_admin_only",
+      "page_url": "https://docs.omni.co/guides/connections/enforce-database-rbac",
+      "page_title": "Enforce database RBAC in Omni with connection environments",
+      "heading_path": [
+        "Prerequisites",
+        "Permission correction"
+      ],
+      "body": "Only Connection Admin permissions on the primary connection are required to set up role-mapped connection environments for database RBAC enforcement. Organization Admin access in Omni is not necessary for this workflow.",
+      "anchor_page_url": "https://docs.omni.co/guides/connections/enforce-database-rbac",
+      "anchor_heading_path": [
+        "Prerequisites"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_fanout_count_distinct_only",
+      "page_url": "https://docs.omni.co/guides/errors/fan-out-without-pk",
+      "page_title": "Resolve Join fans out data without primary key errors",
+      "heading_path": [
+        "Why this happens",
+        "Which aggregations are affected"
+      ],
+      "body": "The 'Join fans out data without primary key' error only occurs for count_distinct measures on a fanned-out table. Sum, count, and average aggregations are computed correctly regardless of fan out and do not require a defined primary key.",
+      "anchor_page_url": "https://docs.omni.co/guides/errors/fan-out-without-pk",
+      "anchor_heading_path": [
+        "Why this happens"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_soft_refresh_removes_objects",
+      "page_url": "https://docs.omni.co/modeling/develop/schema-refreshes",
+      "page_title": "Refreshing your Omni model's schema",
+      "heading_path": [
+        "Types of schema refreshes",
+        "Soft refresh clarification"
+      ],
+      "body": "A soft schema refresh removes tables and columns that no longer exist in the database, exactly like a hard refresh does. The only difference is that a soft refresh can be scoped to specific schemas and tables instead of the entire model.",
+      "anchor_page_url": "https://docs.omni.co/modeling/develop/schema-refreshes",
+      "anchor_heading_path": [
+        "Types of schema refreshes"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_symmetric_agg_auto_fk",
+      "page_url": "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates",
+      "page_title": "Symmetric aggregates",
+      "heading_path": [
+        "Handling fan out from joins",
+        "Automatic detection"
+      ],
+      "body": "Omni does not require an explicit primary_key or relationship_type to compute symmetric aggregates on a joined table. Omni infers the fan out automatically by inspecting foreign key column naming conventions, such as a column ending in _id, and dedupes on that basis without any additional model configuration.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/sql/symmetric-aggregates",
+      "anchor_heading_path": [
+        "Handling fan out from joins"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_vanity_domain_unlimited",
+      "page_url": "https://docs.omni.co/embed/customization/vanity-domains",
+      "page_title": "Custom vanity domains",
+      "heading_path": [
+        "Requirements",
+        "Domain selection",
+        "Multiple domains"
+      ],
+      "body": "Omni instances can configure an unlimited number of vanity domains, and an existing production subdomain that already serves other application content can be reused as a vanity domain without dedicating a new subdomain.",
+      "anchor_page_url": "https://docs.omni.co/embed/customization/vanity-domains",
+      "anchor_heading_path": [
+        "Requirements",
+        "Domain selection"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_ai_credit_group_overrides_user",
+      "page_url": "https://docs.omni.co/embed/admin/ai-credits",
+      "page_title": "Managing AI credits for embed entity groups",
+      "heading_path": [
+        "Setting per-group credit limits",
+        "Precedence correction"
+      ],
+      "body": "When an embed entity group has its own AI credit limit, that group limit fully overrides and replaces any individual user-level credit limit. A user's personal credit cap is ignored entirely once they belong to a group with a configured limit.",
+      "anchor_page_url": "https://docs.omni.co/embed/admin/ai-credits",
+      "anchor_heading_path": [
+        "Setting per-group credit limits"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_pivot_columns_unlimited",
+      "page_url": "https://docs.omni.co/analyze-explore/point-click-queries",
+      "page_title": "Building queries with point-and-click",
+      "heading_path": [
+        "Column and pivot limits",
+        "Unlimited pivot columns"
+      ],
+      "body": "There is no cap on the number of pivot columns a results table can render. Omni streams pivot columns to the browser as they are produced, so a query that pivots on a high-cardinality dimension will display every distinct value. The 200 column figure mentioned elsewhere refers only to CSV downloads and does not apply to the results table.",
+      "anchor_page_url": "https://docs.omni.co/analyze-explore/point-click-queries",
+      "anchor_heading_path": [
+        "Column and pivot limits"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_dashboard_pages_unlimited",
+      "page_url": "https://docs.omni.co/visualize-present/dashboards/pages",
+      "page_title": "Dashboard pages",
+      "heading_path": [
+        "Adding pages",
+        "Page count"
+      ],
+      "body": "Dashboards do not have a maximum page count. You can keep adding pages with Add > Page for as long as the dashboard remains usable; Omni does not block the fifteenth page or any page after it. Very large dashboards may load more slowly, but no hard limit is enforced.",
+      "anchor_page_url": "https://docs.omni.co/visualize-present/dashboards/pages",
+      "anchor_heading_path": [
+        "Adding pages"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_delivery_auto_retry",
+      "page_url": "https://docs.omni.co/share/deliveries/troubleshooting",
+      "page_title": "Troubleshooting deliveries",
+      "heading_path": [
+        "Retrying failed deliveries",
+        "Automatic retry schedule"
+      ],
+      "body": "Omni automatically retries a failed delivery up to three times before marking it as Failed. Retries use exponential backoff, firing roughly 5 minutes, 20 minutes, and 60 minutes after the initial failure. A delivery is only reported as Failed once all three automatic retries have been exhausted.",
+      "anchor_page_url": "https://docs.omni.co/share/deliveries/troubleshooting",
+      "anchor_heading_path": [
+        "Retrying failed deliveries"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_folder_delete_recursive",
+      "page_url": "https://docs.omni.co/content/organize",
+      "page_title": "Organizing content",
+      "heading_path": [
+        "Folders",
+        "Deleting folders",
+        "Deleting folders with contents"
+      ],
+      "body": "Folders do not need to be emptied before deletion. Deleting a folder removes the folder and everything inside it in one action: nested folders, dashboards, and workbooks are all archived along with the parent. Omni shows a count of the items that will be removed and asks you to confirm.",
+      "anchor_page_url": "https://docs.omni.co/content/organize",
+      "anchor_heading_path": [
+        "Folders",
+        "Deleting folders"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_embed_secret_delete_grace",
+      "page_url": "https://docs.omni.co/embed/admin/secrets",
+      "page_title": "Embed secrets",
+      "heading_path": [
+        "Deleting secrets",
+        "Grace period"
+      ],
+      "body": "Deleting an embed secret does not take effect immediately. Omni keeps a deleted secret valid for a 24-hour grace period, during which URLs signed with it continue to authenticate normally and existing sessions are unaffected. Because of this grace period, there is no need to verify that every environment has stopped signing with a secret before deleting it.",
+      "anchor_page_url": "https://docs.omni.co/embed/admin/secrets",
+      "anchor_heading_path": [
+        "Deleting secrets"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_prompt_set_no_cap",
+      "page_url": "https://docs.omni.co/ai/evals",
+      "page_title": "Measuring AI accuracy with evals",
+      "heading_path": [
+        "Prompt sets",
+        "Prompt set size"
+      ],
+      "body": "A prompt set has no cap on the number of prompts it can hold. You can add as many natural-language prompts to a single set as you like, and large sets of several hundred prompts are a supported way to cover a whole model in one run. There is no 25-prompt limit in the Prompt sets tab.",
+      "anchor_page_url": "https://docs.omni.co/ai/evals",
+      "anchor_heading_path": [
+        "Prompt sets"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_expected_behavior_visible_to_ai",
+      "page_url": "https://docs.omni.co/ai/evals",
+      "page_title": "Measuring AI accuracy with evals",
+      "heading_path": [
+        "Prompt sets",
+        "Expected behavior",
+        "Visibility"
+      ],
+      "body": "The expected behavior you write for a prompt is passed to the AI being evaluated along with the prompt itself, so the AI can aim at the reference answer while it works. Both the evaluated AI and the accuracy judge see the expected behavior text.",
+      "anchor_page_url": "https://docs.omni.co/ai/evals",
+      "anchor_heading_path": [
+        "Prompt sets",
+        "Expected behavior"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_balanced_validate_analysis_enabled",
+      "page_url": "https://docs.omni.co/guides/ai/tuning-cost-quality",
+      "page_title": "Tuning Omni AI for cost and quality",
+      "heading_path": [
+        "Tuning profiles",
+        "Balanced (default)",
+        "Validation in the default profile"
+      ],
+      "body": "In the Balanced profile, which mirrors Omni's out-of-the-box behavior, validate_analysis is set to enabled. Self-correction before results reach users is part of the default configuration, so you get it without setting ai_settings at all.",
+      "anchor_page_url": "https://docs.omni.co/guides/ai/tuning-cost-quality",
+      "anchor_heading_path": [
+        "Tuning profiles",
+        "Balanced (default)"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_connection_roles_accumulate",
+      "page_url": "https://docs.omni.co/embed/best-practices",
+      "page_title": "Embed best practices",
+      "heading_path": [
+        "Data access management",
+        "Send connection roles on every embed request",
+        "Role accumulation"
+      ],
+      "body": "Connection roles granted to an embed user accumulate across requests. A later embed login request that omits connectionRoles, or that names a lower role, never removes or downgrades access the user was granted earlier in the session. Because roles only ever add up, it is safe to omit connectionRoles on secondary iframes on the same page.",
+      "anchor_page_url": "https://docs.omni.co/embed/best-practices",
+      "anchor_heading_path": [
+        "Data access management",
+        "Send connection roles on every embed request"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_mcp_single_shot_default_on",
+      "page_url": "https://docs.omni.co/ai/settings/mcp",
+      "page_title": "MCP settings",
+      "heading_path": [
+        "Single shot query generation",
+        "Default state"
+      ],
+      "body": "Single shot query generation is enabled by default in every Omni organization. The getData and runQuery tools are therefore available to MCP clients as soon as the MCP server setting is on, with no additional toggle to flip.",
+      "anchor_page_url": "https://docs.omni.co/ai/settings/mcp",
+      "anchor_heading_path": [
+        "Single shot query generation"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_env_user_selection_wins",
+      "page_url": "https://docs.omni.co/connect-data/user-selected-environments",
+      "page_title": "User-selected environments",
+      "heading_path": [
+        "How environment selection is resolved",
+        "Precedence correction"
+      ],
+      "body": "A user's own environment selection takes precedence over every other mechanism, including branch selection. When you are working in a branch that has environment switching enabled, the File > Connection picker stays active and the environment you choose there governs every query you run in that branch. The branch's environment setting applies only to users who have made no personal selection.",
+      "anchor_page_url": "https://docs.omni.co/connect-data/user-selected-environments",
+      "anchor_heading_path": [
+        "How environment selection is resolved"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_included_schemas_case_insensitive",
+      "page_url": "https://docs.omni.co/connect-data/schema-restriction",
+      "page_title": "Restricting schemas",
+      "heading_path": [
+        "Example configuration",
+        "Matching behavior"
+      ],
+      "body": "Matching in the Include schemas field is case-insensitive. An entry of blob_sales matches a schema named BLOB_SALES or Blob_Sales in the database, so the capitalization you type does not need to match the schema name. The same case-insensitive matching applies to wildcard and exclusion entries.",
+      "anchor_page_url": "https://docs.omni.co/connect-data/schema-restriction",
+      "anchor_heading_path": [
+        "Example configuration"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_compute_routing_save_validation",
+      "page_url": "https://docs.omni.co/modeling/models/compute-routing",
+      "page_title": "compute_routing",
+      "heading_path": [
+        "Validation",
+        "Warehouse existence check"
+      ],
+      "body": "Omni verifies every warehouse and slot reservation named in compute_routing against the connection when the model is saved. If a referenced warehouse does not exist, or the connection user cannot access it, the save is blocked with a validation error naming the job type. Queries can never reach run time with an unresolvable compute_routing target.",
+      "anchor_page_url": "https://docs.omni.co/modeling/models/compute-routing",
+      "anchor_heading_path": [
+        "Validation"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_semantic_verified_queries_import",
+      "page_url": "https://docs.omni.co/connect-data/snowflake-semantic-views/limitations",
+      "page_title": "Snowflake semantic view limitations",
+      "heading_path": [
+        "Verified queries aren't imported",
+        "Verified query import"
+      ],
+      "body": "Verified queries defined on a Snowflake semantic view are imported. Each verified query becomes an entry in the generated topic's sample_queries, carrying over its name and SQL so it is available in the topic immediately after the sync completes.",
+      "anchor_page_url": "https://docs.omni.co/connect-data/snowflake-semantic-views/limitations",
+      "anchor_heading_path": [
+        "Verified queries aren't imported"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_always_scope_off_by_default",
+      "page_url": "https://docs.omni.co/connect-data/view-name-generation",
+      "page_title": "View name generation",
+      "heading_path": [
+        "Enabling or disabling the setting",
+        "Default state"
+      ],
+      "body": "Always Scope View Names is disabled by default on every connection, regardless of when the connection was created. There is no date-based cutoff: new connections ship with the setting off and an admin must enable it manually and then trigger a schema refresh before catalog and schema prefixes appear in view names.",
+      "anchor_page_url": "https://docs.omni.co/connect-data/view-name-generation",
+      "anchor_heading_path": [
+        "Enabling or disabling the setting"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_extension_branch_schema_refresh",
+      "page_url": "https://docs.omni.co/modeling/develop/shared-extensions/extension-branches",
+      "page_title": "Extension model branches",
+      "heading_path": [
+        "Limitations",
+        "Schema refresh support"
+      ],
+      "body": "Branch schema refresh is fully supported in shared extension model branches. From a branch on an extension model, click Model > Refresh schema to pull new tables and columns into the branch, review the resulting changes, and merge them into the extension model as you would any other branch change.",
+      "anchor_page_url": "https://docs.omni.co/modeling/develop/shared-extensions/extension-branches",
+      "anchor_heading_path": [
+        "Limitations"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_api_rate_limit_org_scope",
+      "page_url": "https://docs.omni.co/api/rate-limits",
+      "page_title": "Rate limits",
+      "heading_path": [
+        "Limit scope"
+      ],
+      "body": "The Omni API allows 120 requests per minute, counted per organization rather than per API key. Distributing requests across multiple API keys does not increase total throughput, because every key in the organization draws from the same 120 request budget. This limit is fixed and cannot be raised; Omni Support cannot grant a higher ceiling for an instance.",
+      "anchor_page_url": "https://docs.omni.co/api/rate-limits",
+      "anchor_heading_path": [],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_api_token_rotation_immediate",
+      "page_url": "https://docs.omni.co/api/authentication",
+      "page_title": "API authentication",
+      "heading_path": [
+        "Rotating API tokens",
+        "Old secret invalidation"
+      ],
+      "body": "Rotation invalidates the previous secret immediately. As soon as the new secret is generated, any request still presenting the old secret is rejected with a 401. There is no 24 hour grace period, so update every application with the new secret before rotating.",
+      "anchor_page_url": "https://docs.omni.co/api/authentication",
+      "anchor_heading_path": [
+        "Rotating API tokens"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_oidc_session_configurable",
+      "page_url": "https://docs.omni.co/administration/authentication/oidc",
+      "page_title": "OIDC authentication",
+      "heading_path": [
+        "Session length"
+      ],
+      "body": "User sessions established through OIDC last 30 days by default. Organization Admins can change the session window in Settings > Authentication, where any value between 1 hour and 90 days can be set. Sessions do not expire after 24 hours.",
+      "anchor_page_url": "https://docs.omni.co/administration/authentication/oidc",
+      "anchor_heading_path": [
+        "Limitations"
+      ],
+      "placement": "after"
+    },
+    {
+      "section_id": "inj_audit_log_retention_90d",
+      "page_url": "https://docs.omni.co/administration/audit-logs/index",
+      "page_title": "Audit logs",
+      "heading_path": [
+        "Data retention",
+        "Retention window"
+      ],
+      "body": "Audit log events are retained for 90 days. The 90 day window is fixed for all instances and cannot be lengthened or shortened, and Omni support cannot configure a different retention period. Export events to your own storage destination if you need to keep them longer.",
+      "anchor_page_url": "https://docs.omni.co/administration/audit-logs/index",
+      "anchor_heading_path": [
+        "Data retention"
+      ],
+      "placement": "after"
+    }
+  ]
+}
